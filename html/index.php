@@ -12,6 +12,6 @@ define("ASSETS_URL", "/assets");
 // Carica le dipendenze
 require_once APP_PATH . "/core/autoload.php";
 
-// Avvia l\'applicazione
+// Avvia l'applicazione
 $app = new Core\App();
 $app->run();

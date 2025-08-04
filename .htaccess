@@ -1,6 +1,14 @@
 # Abilita il rewrite engine
 RewriteEngine On
 
+# Normalizza gli URL con doppi slash
+RewriteCond %{THE_REQUEST} //
+RewriteRule ^.*$ $0 [R=301,L,NE]
+
+# Se la richiesta non è per un file o una cartella esistente
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
 # Regole per i font
 <FilesMatch "\.(ttf|ttc|otf|eot|woff|woff2|svg)$">
 Header set Access-Control-Allow-Origin "*"
