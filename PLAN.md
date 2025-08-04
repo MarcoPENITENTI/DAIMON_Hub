@@ -2,10 +2,41 @@
 
 ## Stato Attuale
 - [x] Struttura base del progetto
-- [x] Sistema di routing e template
+- [x] Sistema di routing e template di base
 - [x] Documentazione iniziale
 - [ ] Sistema di debug
 - [ ] Layer Database
+
+## Priorità Immediate
+
+### 1. Miglioramento del Sistema di Template
+**Obiettivo**: Migliorare il sistema di template esistente mantenendolo semplice ma più robusto.
+
+**Miglioramenti proposti**:
+- [ ] Aggiungere l'ereditarietà dei template (layout base)
+- [ ] Implementare l'escape automatico dell'output per prevenire XSS
+- [ ] Aggiungere helper per i form e gli URL
+- [ ] Creare un sistema di sezioni per i blocchi di contenuto
+- [ ] Aggiungere il supporto ai template parziali
+
+### 2. Implementazione di un Sistema di Routing Avanzato
+**Obiettivo**: Sostituire il sistema di routing attuale con uno più robusto e sicuro.
+
+**Caratteristiche chiave**:
+- [ ] Supporto per parametri nelle rotte (es. `/users/:id`)
+- [ ] Supporto per i metodi HTTP (GET, POST, PUT, DELETE)
+- [ ] Middleware per la validazione e l'autenticazione
+- [ ] Gruppi di rotte per organizzare il codice
+- [ ] Nomi delle rotte per generare URL in modo sicuro
+
+### 3. Sistema di Configurazione e Database
+**Obiettivo**: Creare un sistema di configurazione flessibile e una tabella per le impostazioni.
+
+**Task**:
+- [ ] Creare la tabella `config` nel database
+- [ ] Implementare la classe Config per la gestione delle impostazioni
+- [ ] Aggiungere il supporto alla cache per le impostazioni
+- [ ] Creare un'interfaccia di amministrazione per modificare le impostazioni
 
 ## Prossimi Passi
 

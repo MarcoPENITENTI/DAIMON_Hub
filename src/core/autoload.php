@@ -6,10 +6,9 @@ spl_autoload_register(function ($class) {
     // Base directory for the namespace prefixes
     $base_dir = __DIR__ . '/../';
     
-    // Mappa dei namespace
+    // Mappa dei namespace PSR-4
     $prefixes = [
-        'Core\\' => 'core/',
-        'App\\' => 'app/'
+        'DAIMON\\' => 'src/'
     ];
     
     // Cerca il prefisso del namespace
