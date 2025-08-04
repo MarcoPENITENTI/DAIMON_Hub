@@ -4,6 +4,7 @@
 - [x] Struttura base del progetto
 - [x] Sistema di routing e template di base
 - [x] Documentazione iniziale
+- [ ] Sistema di migrazione (in corso, da risolvere errori)
 - [ ] Sistema di debug
 - [ ] Layer Database
 
@@ -32,11 +33,15 @@
 ### 3. Sistema di Configurazione e Database
 **Obiettivo**: Creare un sistema di configurazione flessibile e una tabella per le impostazioni.
 
-**Task**:
-- [ ] Creare la tabella `config` nel database
-- [ ] Implementare la classe Config per la gestione delle impostazioni
-- [ ] Aggiungere il supporto alla cache per le impostazioni
+**Stato Attuale**:
+- [x] Creata la tabella `config` nel database
+- [x] Implementata la classe Config per la gestione delle impostazioni
+- [x] Aggiunto supporto alla cache per le impostazioni
 - [ ] Creare un'interfaccia di amministrazione per modificare le impostazioni
+
+**Problemi Aperti**:
+- Il sistema di migrazione non trova la classe MigrationManager
+- Necessario verificare l'autoloader e i namespace
 
 ## Prossimi Passi
 
