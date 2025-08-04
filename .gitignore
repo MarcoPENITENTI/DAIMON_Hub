@@ -1,2 +1,22 @@
+# Dependencies
 /vendor/
+/node_modules/
+
+# Environment
 .env
+.env.local
+.env.*.local
+
+# Logs
+/logs/*
+!/logs/.gitkeep
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# System Files
+.DS_Store
+Thumbs.db
