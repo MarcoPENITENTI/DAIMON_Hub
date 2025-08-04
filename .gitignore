@@ -1,11 +1,15 @@
 # Dependencies
 /vendor/
 /node_modules/
+/composer.lock
 
 # Environment
 .env
 .env.local
 .env.*.local
+
+# Local database configuration
+/config/database.local.php
 
 # Logs
 /logs/*
@@ -16,7 +20,25 @@
 .vscode/
 *.swp
 *.swo
+.phpunit.result.cache
 
 # System Files
 .DS_Store
 Thumbs.db
+
+# Cache and session
+/storage/framework/sessions/*
+/storage/framework/views/*
+/storage/framework/cache/*
+
+# Debug
+.phpunit.cache/
+.php-cs-fixer.cache
+
+# Testing
+/coverage/
+
+# Local development
+Homestead.json
+Homestead.yaml
+Vagrantfile
