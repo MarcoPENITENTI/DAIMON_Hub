@@ -1,0 +1,7 @@
+RewriteEngine On
+<FilesMatch "\.(ttf|otf|eot|woff|woff2|svg)$">
+    Header set Access-Control-Allow-Origin "*"
+</FilesMatch>
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]'
