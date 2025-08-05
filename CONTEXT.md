@@ -17,35 +17,75 @@
 - Utilizzare Dependency Injection per una migliore testabilità
 
 ### 2. Struttura del Codice
-- **`src/`**: Codice sorgente PHP
-  - `Core/`: Componenti fondamentali del framework
-  - `Models/`: Modelli di dati
-  - `Repositories/`: Accesso ai dati
-  - `Services/`: Logica di business
-  - `Controllers/`: Gestione delle richieste HTTP
-  - `Middleware/`: Middleware per la pipeline HTTP
-  - `Exceptions/`: Eccezioni personalizzate
-  - `Interfaces/`: Interfacce per i contratti
-  - `Traits/`: Traits per la condivisione di codice
-- **`public/`**: File accessibili pubblicamente
-- **`views/`**: Template delle viste
-  - `layouts/`: Layout principali
-  - `components/`: Componenti riutilizzabili
-  - `partials/`: Parti di template riutilizzabili
-- **`config/`**: File di configurazione
-- **`assets/`**: Asset frontend
-  - `css/`: Stili globali e componenti
-  - `js/`: Script JavaScript
-  - `images/`: Immagini
-  - `fonts/`: Font personalizzati
-- **`tests/`**: Test automatici
-- **`migrations/**: Migrazioni del database
+- **`html/`**: Root del sito web (document root)
+  - `index.php`: Punto di ingresso dell'applicazione
+  - `app/`: Codice sorgente PHP
+    - `core/`: Componenti fondamentali del framework
+    - `models/`: Modelli di dati
+    - `repositories/`: Accesso ai dati
+    - `services/`: Logica di business
+    - `controllers/`: Gestione delle richieste HTTP
+    - `middleware/`: Middleware per la pipeline HTTP
+    - `exceptions/`: Eccezioni personalizzate
+    - `interfaces/`: Interfacce per i contratti
+    - `traits/`: Traits per la condivisione di codice
+  - `views/`: Template delle viste
+    - `layouts/`: Layout principali
+    - `components/`: Componenti riutilizzabili
+    - `partials/`: Parti di template riutilizzabili
+  - `config/`: File di configurazione
+  - `assets/`: Asset frontend (collegamento simbolico a /assets)
+    - `css/`: Stili globali e componenti
+    - `js/`: Script JavaScript
+    - `images/`: Immagini
+    - `fonts/`: Font personalizzati
+- **`database/`**: Migrazioni e seeders
 - **`storage/`**: File generati dall'applicazione
   - `cache/`
   - `logs/`
   - `sessions/`
+- **`tests/`**: Test automatici
+- **`scripts/`**: Script di utilità
 
-### 3.1 Programmazione a Oggetti
+### 3.1 Architettura del Sistema
+
+#### Struttura del Core
+- **Autoloader PSR-4**
+  - Mappatura dei namespace:
+    - `DAIMON\Core\` → `/app/core/`
+    - `DAIMON\` → `/app/src/`
+  - Supporto per il caricamento automatico delle classi
+  - Gestione dei namespace con supporto a più livelli
+
+#### Template Engine
+- **Path Management**
+  - Directory di base: `/app/views/`
+  - Supporto per template parziali e layout
+  - Estrattore di variabili automatico per i template
+  - Variabili globali disponibili in tutti i template
+    - `base_url`: URL di base dell'applicazione
+
+#### Gestione delle Richieste
+- **Routing**
+  - Sistema di routing basato su array associativo
+  - Supporto per callback e metodi di controller
+  - Gestione degli errori 404 integrata
+  - Debug delle rotte in ambiente di sviluppo
+
+#### Gestione degli Errori
+- **Error Handling**
+  - Gestione centralizzata delle eccezioni
+  - Pagine di errore personalizzate
+  - Logging degli errori in ambiente di produzione
+  - Debug dettagliato in ambiente di sviluppo
+
+#### Configurazione
+- **Variabili d'Ambiente**
+  - Supporto per diversi ambienti (dev, staging, production)
+  - Configurazione tramite costanti PHP
+  - Path di sistema configurabili
+
+### 3.2 Programmazione a Oggetti
 - **Preferire la composizione all'ereditarietà**:
   - Utilizzare l'ereditarietà solo quando esiste una relazione "è un" molto chiara
   - Preferire la composizione ("ha un") per una maggiore flessibilità
